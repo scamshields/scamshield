@@ -4,6 +4,7 @@ import { Header } from "@/components/header"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { ReportActions } from "@/components/report-actions"
+import { GraphComment } from "@/components/graph-comment"
 
 export default async function ReportDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
@@ -179,6 +180,12 @@ export default async function ReportDetailPage({ params }: { params: Promise<{ i
 
           {/* Actions (Voting and Flagging) */}
           <ReportActions report={report} />
+
+          {/* Comments Section */}
+          <Card className="p-6">
+            <h2 className="text-xl font-semibold mb-4">Community Discussion</h2>
+            <GraphComment uid={id} />
+          </Card>
         </div>
       </div>
     </main>
